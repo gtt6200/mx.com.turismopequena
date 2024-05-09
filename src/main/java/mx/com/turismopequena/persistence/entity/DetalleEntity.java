@@ -19,7 +19,9 @@ import lombok.Setter;
 import mx.com.turismopequena.persistence.entity.enumsDetalle.Estado;
 import mx.com.turismopequena.persistence.entity.enumsDetalle.Pago;
 import mx.com.turismopequena.persistence.entity.enumsDetalle.Viaje;
-
+/*
+ * author Alxy
+ * */
 @Entity
 @Table(name = "detalle")
 @Getter
