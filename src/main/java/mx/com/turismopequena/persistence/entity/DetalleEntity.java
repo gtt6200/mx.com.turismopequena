@@ -38,10 +38,12 @@ public class DetalleEntity {
 
 	@Column(name = "id_viaje")
 	private Long idViaje;
-	@Column(name = "id_cliente")
-	private Long idCliente;
-	@Column(name = "id_usuario")
-	private Long idUsuario;
+	
+//	@Column(name = "id_cliente")
+//	private Long idCliente;
+//	
+//	@Column(name = "id_usuario")
+//	private Long idUsuario;
 
 	private Short personas;
 
@@ -76,10 +78,10 @@ public class DetalleEntity {
 	private LocalDateTime fechaVenta;
 
 	@ManyToOne
-	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id")
 	private UsuarioEntity usuario;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id")
 	private ClientEntity cliente;
 }

@@ -31,15 +31,11 @@ public class StateEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "id_pais")
-	private Long idCountry;
-	
 	@Column(name = "nombre")
 	private String name;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_pais", referencedColumnName = "id_pais")
+	@JoinColumn(name = "id_pais", referencedColumnName = "id")
 	private CountryEntity country;
 	
-
 }
