@@ -11,14 +11,16 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mx.com.turismopequena.persistence.entity.enumsDetalle.Estado;
-import mx.com.turismopequena.persistence.entity.enumsDetalle.Pago;
-import mx.com.turismopequena.persistence.entity.enumsDetalle.Viaje;
+import mx.com.turismopequena.persistence.entity.enums.SalesStatus;
+import mx.com.turismopequena.persistence.entity.enums.PaymentMethods;
+import mx.com.turismopequena.persistence.entity.enums.TravelType;
 /*
  * author Alxy
  * */
@@ -46,28 +48,38 @@ public class DetalleEntity {
 	private String sube;
 
 	private Time hora;
-	@Column(columnDefinition = "TINYINT(4)")
 	private Short habitacion;
 
 	private Double costo;
 
 	private Double anticipo;
 
-	@Column(columnDefinition = "TINYINT")
 	private Boolean liquidado;
 
 	@Enumerated(EnumType.STRING)
-	private Estado estado;
+	private SalesStatus estado;
+	
 	@Enumerated(EnumType.STRING)
-	private Pago pago;
+	@Column(name = "pago")
+	private PaymentMethods paymentMethod;
+	
 	@Enumerated(EnumType.STRING)
-	private Viaje viaje;
+	private TravelType viaje;
 
 	@Column(name = "hora_regreso")
 	private Time horaRegreso;
+	
 	@Column(name = "fecha_regreso")
 	private Date fechaRegreso;
+	
 	@Column(name = "fechaVenta")
 	private LocalDateTime fechaVenta;
 
+	@ManyToOne
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+	private UsuarioEntity usuario;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+	private ClientEntity cliente;
 }
