@@ -36,14 +36,17 @@ public class DetalleEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "id_viaje")
-	private Long idViaje;
+	@ManyToOne
+	@JoinColumn(name = "id_viaje", referencedColumnName = "id")
+	private TravelEntity travel;
 	
-//	@Column(name = "id_cliente")
-//	private Long idCliente;
-//	
-//	@Column(name = "id_usuario")
-//	private Long idUsuario;
+	@ManyToOne
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id")
+	private UsuarioEntity usuario;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id")
+	private ClientEntity cliente;
 
 	@Column(nullable = false)
 	private Short personas;
@@ -87,11 +90,5 @@ public class DetalleEntity {
 	@Column(name = "fecha_venta", nullable = false)
 	private LocalDateTime fechaVenta;
 
-	@ManyToOne
-	@JoinColumn(name = "id_usuario", referencedColumnName = "id")
-	private UsuarioEntity usuario;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_cliente", referencedColumnName = "id")
-	private ClientEntity cliente;
 }

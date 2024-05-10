@@ -3,19 +3,20 @@
  */
 package mx.com.turismopequena.persistence.entity;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mx.com.turismopequena.persistence.entity.enums.ClientType;
 
 /**
  * 
@@ -25,23 +26,24 @@ import mx.com.turismopequena.persistence.entity.enums.ClientType;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cliente")
-public class ClientEntity {
+@Table(name = "viaje")
+public class TravelEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(name = "nombre", length = 120, nullable = false)
-	private String name;
 	
-	@Column(name = "telefono", length = 12, nullable = false)
-	private String phone;
+	@ManyToOne
+	@JoinColumn(name = "id_destino", referencedColumnName = "id")
+	private DestinationEntity destination;
 	
-	@Column(name = "correo", length = 50)
-	private String email;
+	@Column(name = "fecha", columnDefinition = "DATE")
+	private Date date;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "tipo")
-	private ClientType type;
+	@Column(name = "no_asientos")
+	private Short noSeats;
+	
+	@Column(name = "observaciones", length = 200)
+	private String observation;
+	
 }

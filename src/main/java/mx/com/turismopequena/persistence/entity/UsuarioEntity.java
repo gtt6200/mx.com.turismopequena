@@ -31,17 +31,17 @@ public class UsuarioEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "usuario")
+	@Column(name = "usuario", nullable = false)
 	private String username;
 	
-	@Column(name = "pass")
+	@Column(name = "pass", nullable = false)
 	private String password;
 	
-	@Column(name = "nombre")
+	@Column(name = "nombre", nullable = false)
 	private String name;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "tipo")
+	@Column(name = "tipo", nullable = false)
 	private UserType userType;
 
 }
