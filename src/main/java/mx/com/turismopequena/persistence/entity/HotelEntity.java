@@ -22,14 +22,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "pais")
-public class CountryEntity {
+@Table(name = "hotel")
+public class HotelEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "nombre", nullable = false)
+	@Column(name = "nombre", length = 100, nullable = false)
 	private String name;
-	
 }

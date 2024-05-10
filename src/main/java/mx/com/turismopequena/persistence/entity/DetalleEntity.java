@@ -45,36 +45,46 @@ public class DetalleEntity {
 //	@Column(name = "id_usuario")
 //	private Long idUsuario;
 
+	@Column(nullable = false)
 	private Short personas;
 
+	@Column(nullable = false)
 	private String sube;
 
+	@Column(nullable = false)
 	private Time hora;
+	
+	@Column(nullable = false)
 	private Short habitacion;
 
+	@Column(nullable = false)
 	private Double costo;
 
+	@Column(nullable = false)
 	private Double anticipo;
 
+	@Column(nullable = false)
 	private Boolean liquidado;
 
 	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
 	private SalesStatus estado;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "pago")
+	@Column(name = "pago", nullable = false)
 	private PaymentMethods paymentMethod;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
 	private TravelType viaje;
 
-	@Column(name = "hora_regreso")
-	private Time horaRegreso;
+	@Column(name = "hora_regreso", nullable = false)
+	private Time returnType;
 	
-	@Column(name = "fecha_regreso")
-	private Date fechaRegreso;
+	@Column(name = "fecha_regreso", nullable = false)
+	private Date returnDate;
 	
-	@Column(name = "fechaVenta")
+	@Column(name = "fecha_venta", nullable = false)
 	private LocalDateTime fechaVenta;
 
 	@ManyToOne
