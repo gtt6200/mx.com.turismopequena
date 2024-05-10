@@ -26,7 +26,7 @@ import mx.com.turismopequena.persistence.entity.enums.UserType;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "usuario")
-public class UsuarioEntity {
+public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

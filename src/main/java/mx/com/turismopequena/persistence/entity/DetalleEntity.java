@@ -44,7 +44,7 @@ public class DetalleEntity {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_usuario", referencedColumnName = "id")
-	private UsuarioEntity usuario;
+	private UserEntity usuario;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id")
@@ -62,10 +62,10 @@ public class DetalleEntity {
 	@Column(nullable = false)
 	private Short habitacion;
 
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "DECIMAL(10,2)")
 	private Double costo;
 
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "DECIMAL(10,2)")
 	private Double anticipo;
 
 	@Column(nullable = false)
