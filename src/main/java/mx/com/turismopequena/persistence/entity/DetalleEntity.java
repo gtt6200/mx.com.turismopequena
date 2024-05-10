@@ -1,8 +1,10 @@
 package mx.com.turismopequena.persistence.entity;
 
-import java.sql.Time;
+
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -55,7 +57,7 @@ public class DetalleEntity {
 	private String sube;
 
 	@Column(nullable = false)
-	private Time hora;
+	private LocalTime hora;
 	
 	@Column(nullable = false)
 	private Short habitacion;
@@ -82,10 +84,10 @@ public class DetalleEntity {
 	private TravelType viaje;
 
 	@Column(name = "hora_regreso", nullable = false)
-	private Time returnType;
+	private LocalTime returnType;
 	
 	@Column(name = "fecha_regreso", nullable = false)
-	private Date returnDate;
+	private LocalDate returnDate;
 	
 	@Column(name = "fecha_venta", nullable = false)
 	private LocalDateTime fechaVenta;

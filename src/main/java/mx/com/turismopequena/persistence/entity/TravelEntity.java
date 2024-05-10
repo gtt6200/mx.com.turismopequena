@@ -3,7 +3,7 @@
  */
 package mx.com.turismopequena.persistence.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,8 +37,8 @@ public class TravelEntity {
 	@JoinColumn(name = "id_destino", referencedColumnName = "id")
 	private DestinationEntity destination;
 	
-	@Column(name = "fecha", columnDefinition = "DATE")
-	private Date date;
+	@Column(name = "fecha")
+	private LocalDate date;
 	
 	@Column(name = "no_asientos")
 	private Short noSeats;

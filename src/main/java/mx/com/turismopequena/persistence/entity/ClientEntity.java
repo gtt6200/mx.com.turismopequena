@@ -44,4 +44,6 @@ public class ClientEntity {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo")
 	private ClientType type;
+	
+	
 }
