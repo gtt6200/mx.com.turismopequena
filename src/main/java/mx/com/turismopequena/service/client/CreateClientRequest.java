@@ -10,13 +10,13 @@ import mx.com.turismopequena.persistence.entity.enums.ClientType;
  * 
  */
 @Data
-public class ClientRequest {
+public class CreateClientRequest {
 	
-	private String email;
+	private final String name;
 	
-	private String name;
+	private final String email;
 	
-	private String phone;
+	private final String phone;
 	
-	private ClientType clientType;
+	private final ClientType type;
 }

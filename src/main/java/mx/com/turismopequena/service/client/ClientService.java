@@ -3,13 +3,13 @@
  */
 package mx.com.turismopequena.service.client;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mx.com.turismopequena.persistence.entity.ClientEntity;
+import mx.com.turismopequena.persistence.entity.enums.ClientType;
 import mx.com.turismopequena.persistence.repository.ClientRepository;
 
 /**
@@ -44,16 +44,20 @@ public class ClientService {
 		                client.getName()
 						)).toList();
 	}
-//		List<ClientEntity> entities = this.clientRepository.findAll();
-//		List<ClientResponse> clientResponse = new ArrayList<>();
-//		ClientResponse auxResponse = new ClientResponse();
-//		for(ClientEntity client : entities) {
-//			auxResponse.setId(client.getId());
-//			auxResponse.setName(client.getName());
-//			auxResponse.setPhone(client.getPhone());
-//			auxResponse.setEmail(client.getEmail());
-//			clientResponse.add(auxResponse);
-//		}
-//		return clientResponse;
 	
+	public ClientResponse saveClient(CreateClientRequest clientToCreate) {
+		final String name = clientToCreate.getName();
+		final String phone = clientToCreate.getPhone();
+		final String email = clientToCreate.getEmail();
+		final ClientType type = clientToCreate.getType();
+		
+		ClientEntity client = new ClientEntity(null,name,phone,email,type);
+		this.clientRepository.save(client);
+		return new ClientResponse(
+				client.getId(),
+				client.getName(), 
+				client.getPhone(), 
+				client.getEmail(), 
+				client.getType());
+	}
 }
