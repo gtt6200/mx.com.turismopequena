@@ -39,6 +39,8 @@ public class UserEntity {
 	
 	@Column(name = "nombre", nullable = false)
 	private String name;
+	@Column(name = "telefono", length = 12, nullable = false)
+	private String phone;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo", nullable = false)

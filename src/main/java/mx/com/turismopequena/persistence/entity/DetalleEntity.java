@@ -40,57 +40,57 @@ public class DetalleEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "id_viaje", referencedColumnName = "id")
-	private TravelEntity travel;
+	private TravelEntity travelId;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_usuario", referencedColumnName = "id")
-	private UserEntity usuario;
+	private UserEntity userId;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id")
-	private ClientEntity cliente;
+	private ClientEntity clientId;
 
-	@Column(nullable = false)
-	private Short personas;
+	@Column(nullable = false, name = "personas")
+	private Short people;
 
-	@Column(nullable = false)
-	private String sube;
+	@Column(nullable = false, name = "sube")
+	private String board;
 
-	@Column(nullable = false)
-	private LocalTime hora;
+	@Column(nullable = false, name = "hora")
+	private LocalTime hour;
 	
-	@Column(nullable = false)
-	private Short habitacion;
+	@Column(nullable = false, name = "habitacion")
+	private Short roomCount;
 
-	@Column(nullable = false, columnDefinition = "DECIMAL(10,2)")
-	private Double costo;
+	@Column(nullable = false, columnDefinition = "DECIMAL(10,2)", name = "costo")
+	private Double price;
 
-	@Column(nullable = false, columnDefinition = "DECIMAL(10,2)")
-	private Double anticipo;
+	@Column(nullable = false, columnDefinition = "DECIMAL(10,2)", name = "anticipo")
+	private Double initialPayment;
 
-	@Column(nullable = false)
-	private Boolean liquidado;
+	@Column(nullable = false, name = "liquidado")
+	private Boolean isPaidOff;
 
 	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
-	private SalesStatus estado;
+	@Column(name = "estado", nullable = false)
+	private SalesStatus status;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "pago", nullable = false)
 	private PaymentMethods paymentMethod;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
-	private TravelType viaje;
+	@Column(name = "viaje", nullable = false)
+	private TravelType travel;
 
 	@Column(name = "hora_regreso", nullable = false)
-	private LocalTime returnType;
+	private LocalTime returnTime;
 	
 	@Column(name = "fecha_regreso", nullable = false)
 	private LocalDate returnDate;
 	
 	@Column(name = "fecha_venta", nullable = false)
-	private LocalDateTime fechaVenta;
+	private LocalDateTime saleDate;
 
 	
 }

@@ -60,4 +60,8 @@ public class ClientService {
 				client.getEmail(), 
 				client.getType());
 	}
+	
+	public boolean isExist(Long id) {
+		return clientRepository.existsById(id);
+	}
 }
