@@ -1,7 +1,6 @@
 package mx.com.turismopequena.web.controller;
 
-import mx.com.turismopequena.persistence.entity.DetalleEntity;
-import mx.com.turismopequena.persistence.projection.interfacebased.detail.closed.DetailClosedView;
+import mx.com.turismopequena.persistence.repository.detail.DetailDTO;
 import mx.com.turismopequena.service.detail.DetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +15,13 @@ public class DetailController {
     @Autowired
     private DetailService detailService;
     @GetMapping
-    public List<DetailClosedView> findBy(){
-        return detailService.findBy();
+    public List<DetailDTO> findBy(){
+        try {
+            return detailService.findDetailDTO();
+        }catch(Exception e){
+            System.out.println("Error: " + e.getMessage());
+        }
+        return null;
     }
 
 }

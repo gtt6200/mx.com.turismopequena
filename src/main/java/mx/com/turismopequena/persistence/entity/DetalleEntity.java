@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -23,6 +24,9 @@ import lombok.Setter;
 import mx.com.turismopequena.persistence.entity.enums.SalesStatus;
 import mx.com.turismopequena.persistence.entity.enums.PaymentMethods;
 import mx.com.turismopequena.persistence.entity.enums.TravelType;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
+
 /*
  * author Alxy
  * */
@@ -38,6 +42,8 @@ public class DetalleEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+//	@Column(name = "id_viaje")
+//	private Long idTravel;
 	@ManyToOne
 	@JoinColumn(name = "id_viaje", referencedColumnName = "id")
 	private TravelEntity travelId;
@@ -45,7 +51,11 @@ public class DetalleEntity {
 	@ManyToOne
 	@JoinColumn(name = "id_usuario", referencedColumnName = "id")
 	private UserEntity userId;
-	
+//	@Column(name = "id_usuario")
+//	private Long idUser;
+//
+//	@Column(name = "id_cliente")
+//	private Long idClient;
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id")
 	private ClientEntity clientId;
@@ -92,5 +102,4 @@ public class DetalleEntity {
 	@Column(name = "fecha_venta", nullable = false)
 	private LocalDateTime saleDate;
 
-	
 }
